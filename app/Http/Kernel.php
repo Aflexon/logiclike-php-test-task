@@ -2,13 +2,16 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Limiter;
 use App\Http\Middleware\MiddlewareInterface;
+use App\Http\Middleware\RateLimit;
+use App\Storage\MemcacheStorage;
 use UnexpectedValueException;
 
 class Kernel
 {
     /**
-     * @param MiddlewareInterface[] $stack middleware stack
+     * @var MiddlewareInterface[] $stack middleware stack
      */
     protected $globalMiddlewares = [];
 
@@ -22,7 +25,10 @@ class Kernel
     public function __construct()
     {
         $this->request = Request::createFromGlobals($_SERVER);
-
+        $memcacheStorage = new MemcacheStorage('localhost', 11211);
+        $this->globalMiddlewares = [
+            new RateLimit(new Limiter($memcacheStorage))
+        ];
     }
 
     public function run()

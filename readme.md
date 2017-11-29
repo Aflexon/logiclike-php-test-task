@@ -1,9 +1,10 @@
 # LogicLike PHP Test Task
 
 ## Requirements
-1. PHP 7.1+
+1. PHP 7.0+
 2. Composer
-3. Redis
+3. Memcache
+4. php-memcahed
 
 ## Installation
 ```

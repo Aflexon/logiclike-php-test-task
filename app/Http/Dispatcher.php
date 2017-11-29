@@ -3,17 +3,18 @@
 namespace App\Http;
 
 
+use App\Http\Middleware\Limiter;
 use App\Http\Middleware\MiddlewareInterface;
+use App\Http\Middleware\RateLimit;
+use App\Storage\MemcacheStorage;
 use UnexpectedValueException;
 
 class Dispatcher
 {
     /**
-     * @param MiddlewareInterface[] $stack middleware stack
+     * @var MiddlewareInterface[] $stack middleware stack
      */
-    protected $stack = [
-        ''
-    ];
+    protected $stack = [];
 
     /**
      * @param MiddlewareInterface[] $stack middleware stack (with at least one middleware component)

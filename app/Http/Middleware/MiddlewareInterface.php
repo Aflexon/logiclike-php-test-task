@@ -14,5 +14,5 @@ interface MiddlewareInterface {
      * @param RequestHandler $handler
      * @return Response
      */
-    public function process($request, $handler);
+    public function process(Request $request, RequestHandler $handler);
 }
