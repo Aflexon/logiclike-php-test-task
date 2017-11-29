@@ -4,7 +4,7 @@
 1. PHP 7.0+
 2. Composer
 3. Memcache
-4. php-memcahed
+4. php-memcache
 
 ## Installation
 ```
