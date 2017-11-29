@@ -1,0 +1,19 @@
+{
+    "name": "aflexon/logiclike-php-test",
+    "description": "Test task for logiclike.com",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Aleksey Afanasenko",
+            "email": "a.afanasenko@akdev.by"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
